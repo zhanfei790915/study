@@ -3,9 +3,9 @@ package com.gene.study.web.model;
 public class Menu {
     private Integer id;
 
-    private String mname;
+    private String name;
 
-    private String murl;
+    private String url;
 
     private Integer pid;
 
@@ -19,20 +19,20 @@ public class Menu {
         this.id = id;
     }
 
-    public String getMname() {
-        return mname;
+    public String getName() {
+        return name;
     }
 
-    public void setMname(String mname) {
-        this.mname = mname == null ? null : mname.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
-    public String getMurl() {
-        return murl;
+    public String getUrl() {
+        return url;
     }
 
-    public void setMurl(String murl) {
-        this.murl = murl == null ? null : murl.trim();
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
     }
 
     public Integer getPid() {

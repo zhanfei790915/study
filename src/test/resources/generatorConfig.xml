@@ -2,13 +2,14 @@
 <!DOCTYPE generatorConfiguration
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
-
 <!-- 配置Run As Maven build : Goals 参数 : mybatis-generator:generate -Dmybatis.generator.overwrite=true -->
 <!-- 配置 tableName,使用 Run As Maven build 生成 dao model 层 -->
 <generatorConfiguration>
 	<!-- 配置文件路径 -->
-	<properties url="${mybatis.generator.generatorConfig.properties}" />
-
+	<!-- 第一种配置采用Run as..Maven Build..的方式 -->
+	<!-- <properties url="${mybatis.generator.generatorConfig.properties}" /> -->
+	<!-- 第二种配置采用Java源文件执行的方式 -->
+	<properties url="file:///D:\EclipseLunaSR2\workspace\study\src\test\resources\generatorConfig.properties"/>
 	<!--数据库驱动包路径 -->
 	<classPathEntry location="${drive.class.path}" />
 
@@ -55,10 +56,64 @@
             	 <ignoreColumn column="descr"/> -->
             <!-- 指定列的java数据类型 -->  
             <columnOverride column="id" jdbcType="int" />
-            <columnOverride column="mname" jdbcType="String" />
-            <columnOverride column="murl" jdbcType="String" />
+            <columnOverride column="name" jdbcType="String" />
+            <columnOverride column="url" jdbcType="String" />
             <columnOverride column="pid" jdbcType="int" />
             <columnOverride column="iconcode" jdbcType="String"/>
-        </table>  
+        </table>
+        <table tableName="permission"
+        	domainObjectName="Permission" enableCountByExample="true"  
+            enableDeleteByExample="true" enableSelectByExample="true"  
+            enableUpdateByExample="true" enableDeleteByPrimaryKey="true"
+            enableInsert="true"	enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true">
+        	<columnOverride column="id" jdbcType="int" />
+        	<columnOverride column="code" jdbcType="String" />
+        	<columnOverride column="name" jdbcType="String" />
+        </table> 
+        <table tableName="role"
+        	domainObjectName="Role" enableCountByExample="true"  
+            enableDeleteByExample="true" enableSelectByExample="true"  
+            enableUpdateByExample="true" enableDeleteByPrimaryKey="true"
+            enableInsert="true"	enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true">
+        	<columnOverride column="id" jdbcType="int" />
+        	<columnOverride column="name" jdbcType="String" />
+        </table> 
+        <table tableName="rolemenu"
+        	domainObjectName="RoleMenu" enableCountByExample="true"  
+            enableDeleteByExample="true" enableSelectByExample="true"  
+            enableUpdateByExample="true" enableDeleteByPrimaryKey="true"
+            enableInsert="true"	enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true">
+        	<columnOverride column="id" jdbcType="int" />
+        	<columnOverride column="rid" jdbcType="int" />
+        	<columnOverride column="mid" jdbcType="int" />
+        </table> 
+        <table tableName="rolepermission"
+        	domainObjectName="RolePermission" enableCountByExample="true"  
+            enableDeleteByExample="true" enableSelectByExample="true"  
+            enableUpdateByExample="true" enableDeleteByPrimaryKey="true"
+            enableInsert="true"	enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true">
+        	<columnOverride column="id" jdbcType="int" />
+        	<columnOverride column="rid" jdbcType="int" />
+        	<columnOverride column="pid" jdbcType="int" />
+        </table> 
+        <table tableName="user"
+        	domainObjectName="User" enableCountByExample="true"  
+            enableDeleteByExample="true" enableSelectByExample="true"  
+            enableUpdateByExample="true" enableDeleteByPrimaryKey="true"
+            enableInsert="true"	enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true">
+        	<columnOverride column="id" jdbcType="long" />
+        	<columnOverride column="name" jdbcType="String" />
+        	<columnOverride column="pwd" jdbcType="String" />
+        	<columnOverride column="state" jdbcType="String" />
+        </table> 
+        <table tableName="userrole"
+        	domainObjectName="UserRole" enableCountByExample="true"  
+            enableDeleteByExample="true" enableSelectByExample="true"  
+            enableUpdateByExample="true" enableDeleteByPrimaryKey="true"
+            enableInsert="true"	enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true">
+        	<columnOverride column="id" jdbcType="int" />
+        	<columnOverride column="uid" jdbcType="long" />
+        	<columnOverride column="rid" jdbcType="int" />
+        </table> 
 	</context>
 </generatorConfiguration>
